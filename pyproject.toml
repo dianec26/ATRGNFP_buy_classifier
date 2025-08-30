@@ -1,12 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "atrgnfp-buy-classifier"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.12"
 dependencies = [
-    "ipykernel>=6.30.1",
+    "mlflow>=3.3.2",
     "pandas>=2.3.2",
-    "pre-commit>=4.3.0",
-    "requests>=2.32.5",
+    "scikit-learn>=1.7.1",
+    "pyarrow>=21.0.0",
+    "loguru==0.7.3",
+    "joblib>=1.5.2",
+    "uvicorn>=0.24.0",
+    "xgboost>=3.0.4",
+    "joblib>=1.5.2",
+
 ]
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["*"]
+
+[tool.setuptools.package-dir]
+"" = "src"

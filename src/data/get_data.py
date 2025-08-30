@@ -183,6 +183,21 @@ def add_buy_signals(csv_file_path, output_file_path=None):
     return result_df
 
 
+def local_data_ingestion(start="2019-01-01", end=""):
+    if end =="":
+        end_date = datetime.today().strftime('%Y-%m-%d')
+    else:
+        end_date = end
+    
+    url = f"https://www.uitf.com.ph/daily_navpu_details_json.php?from={start}&to={end_date}&bank_id=31&fund_id=355&verification_id=1&btn=Filter"
+    
+    extract_uitf_data(url, filename="../../data/raw/ATRGFNP_hist.csv")
+    
+    input_file = "../../data/raw/ATRGFNP_hist.csv"
+    output_file = "../../data/raw/ATRGFNP_hist_with_buy_signals.csv"
+
+    add_buy_signals(input_file, output_file)
+    
 def data_ingestion(start="2019-01-01", end=""):
     if end =="":
         end_date = datetime.today().strftime('%Y-%m-%d')
@@ -197,6 +212,9 @@ def data_ingestion(start="2019-01-01", end=""):
     output_file = "data/raw/ATRGFNP_hist_with_buy_signals.csv"
 
     add_buy_signals(input_file, output_file)
+    
+    
+
     
     
   

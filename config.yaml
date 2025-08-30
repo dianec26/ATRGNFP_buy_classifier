@@ -1,0 +1,17 @@
+models:
+  LogisticRegression:
+    C: [0.001, 0.01, 0.1, 1, 10, 100]
+    penalty: ['l1', 'l2', 'elasticnet']
+    # ... other parameters
+
+  XGBoost:
+    n_estimators: [100, 200, 300]
+    max_depth: [3, 4, 5, 6]
+    # ... other parameters
+
+training:
+  cv_folds: 5
+  scoring_metric: 'roc_auc'
+
+evaluation:
+  accuracy_threshold: 0.8
