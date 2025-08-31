@@ -9,6 +9,6 @@ COPY config.yaml /app/config.yaml
 
 RUN pip install .
 
-EXPOSE 5001
+EXPOSE 5000
 
-CMD ["mlflow", "server", "--host", "0.0.0.0", "--port", "5001", "--backend-store-uri", "sqlite:///mlflow.db"]
+CMD ["mlflow", "server", "--host", "0.0.0.0", "--port", "5000", "--backend-store-uri", "sqlite:///mlflow.db"]

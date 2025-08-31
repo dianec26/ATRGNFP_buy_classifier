@@ -1,13 +1,13 @@
 FROM  apache/airflow:3.0.3
 
 
-USER root
+# USER root
 
-# Only install curl, no build tools
-RUN apt-get update && apt-get install -y \
-    curl \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+# # Only install curl, no build tools
+# RUN apt-get update && apt-get install -y \
+#     curl \
+#     && apt-get clean \
+#     && rm -rf /var/lib/apt/lists/*
 
 USER airflow
 WORKDIR /opt/airflow
